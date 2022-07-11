@@ -8,6 +8,7 @@ import MovieCard from "./MovieCard";
 import HorizontalScroll from "react-scroll-horizontal";
 
 const MoviesTab: React.FC<any> = () => {
+  // getting movies
   const getAllMovies = async () => {
     try {
       const result = await axios.get(`${APIURL}/events/5/`, {
