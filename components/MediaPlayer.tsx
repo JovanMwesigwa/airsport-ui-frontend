@@ -21,7 +21,8 @@ export const MediaPlayer: React.FC<Props> = ({ data }) => {
         loop
         style={{ height: "100%", width: "100%", objectFit: "cover" }} //object-fit:cover
       >
-        <source src={item.event_media} type="video/mp4" />
+        <source src="video.mp4" type="video/mp4" />
+        {/* <source src={item.event_media} type="video/mp4" /> */}
       </video>
       <div className="absolute top-0 left-0 right-0 bottom-0  bg-gradient-to-t from-[#00021C] flex flex-1 flex-col items-center justify-between">
         <div className="flex  flex-1 items-center justify-center ">

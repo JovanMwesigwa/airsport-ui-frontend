@@ -29,7 +29,11 @@ const EventCard: React.FC<Props> = ({ event }) => {
           <p className="text-xs text-gray-700">20 - 23 Mar - Apr - 2022</p>
           <div className="flex flex-row items-center py-3">
             <div className="bg-gray-800 h-4 w-4 rounded-sm mr-2 relative">
-              <Image src={event.country_flag} layout="fill" />
+              {/* <Image src={event.country_flag} layout="fill" /> */}
+              <Image
+                src={`https://countryflagsapi.com/png/${event.country_flag.toLowerCase()}`}
+                layout="fill"
+              />
             </div>
             <p className="text-xs text-gray-500">
               {event.city} - {event.country}

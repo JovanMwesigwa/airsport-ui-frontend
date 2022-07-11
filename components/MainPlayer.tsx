@@ -23,8 +23,8 @@ export const MainPlayer: React.FC<Props> = ({ setNowPlaying, videoData }) => {
       {/*  */}
 
       <ReactPlayer
-        url={videoData}
-        // url="https://www.pexels.com/video/two-vehicles-traveling-in-the-desert-2099568/"
+        // url={videoData}
+        url="https://www.pexels.com/video/two-vehicles-traveling-in-the-desert-2099568/"
         height="100%"
         width="100%"
         className="absolute top-0 left-0 right-0 "

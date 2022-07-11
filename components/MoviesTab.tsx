@@ -10,7 +10,7 @@ import HorizontalScroll from "react-scroll-horizontal";
 const MoviesTab: React.FC<any> = () => {
   const getAllMovies = async () => {
     try {
-      const result = await axios.get(`${APIURL}/events/3/`, {
+      const result = await axios.get(`${APIURL}/events/5/`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -52,17 +52,11 @@ const MoviesTab: React.FC<any> = () => {
           ) : (
             <>
               <div style={{ width: "100%", height: 500 }}>
-                {query.data.data.length ? (
-                  query.data.data.map((event: any) => (
+                <HorizontalScroll>
+                  {query.data.data.map((event: any) => (
                     <MovieCard key={event.id} event={event} />
-                  ))
-                ) : (
-                  <HorizontalScroll>
-                    {query.data.data.map((event: any) => (
-                      <MovieCard key={event.id} event={event} />
-                    ))}
-                  </HorizontalScroll>
-                )}
+                  ))}
+                </HorizontalScroll>
               </div>
               {query.data.length > 6 && (
                 <div className="bg-white p-4 absolute right-0 top-20 rounded-sm cursor-pointer">

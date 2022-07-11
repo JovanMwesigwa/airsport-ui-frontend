@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["countryflagsapi.com", "127.0.0.1"],
+    domains: [
+      "airsport-tv-backend-api.herokuapp.com",
+      "countryflagsapi.com",
+      "127.0.0.1",
+    ],
   },
 };
 

@@ -12,7 +12,7 @@ import Link from "next/link";
 const ShowsTab: React.FC<any> = () => {
   const getAllShows = async () => {
     try {
-      const result = await axios.get(`${APIURL}/events/4/`, {
+      const result = await axios.get(`${APIURL}/events/6/`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -51,17 +51,11 @@ const ShowsTab: React.FC<any> = () => {
           ) : (
             <>
               <div style={{ width: "100%", height: 500 }}>
-                {query.data.data.length <= 1 ? (
-                  query.data.data.map((event: any) => (
+                <HorizontalScroll>
+                  {query.data.data.map((event: any) => (
                     <ShowCard key={event.id} event={event} />
-                  ))
-                ) : (
-                  <HorizontalScroll>
-                    {query.data.data.map((event: any) => (
-                      <ShowCard key={event.id} event={event} />
-                    ))}
-                  </HorizontalScroll>
-                )}
+                  ))}
+                </HorizontalScroll>
               </div>
               {query.data.length > 6 && (
                 <div className="bg-white p-4 absolute right-0 top-20 rounded-sm cursor-pointer">
