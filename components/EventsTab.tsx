@@ -70,7 +70,7 @@ const EventsTab: React.FC<any> = () => {
                   ))}
                 </HorizontalScroll>
               </div>
-              {query.data.length > 6 && (
+              {eventsData.events.length > 6 && (
                 <div className="absolute right-0 z-30 p-4 bg-white rounded-sm cursor-pointer top-20">
                   <AiOutlineArrowRight />
                 </div>
