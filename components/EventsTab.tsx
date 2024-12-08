@@ -5,6 +5,7 @@ import HorizontalScroll from "react-scroll-horizontal";
 import { useQuery } from "react-query";
 import { APIURL } from "../apiUrl";
 import Link from "next/link";
+import { eventsData } from "../data";
 
 const EventsTab: React.FC<any> = () => {
   const getAllEvents = async () => {
@@ -24,21 +25,21 @@ const EventsTab: React.FC<any> = () => {
 
   return (
     <section>
-      <div className="w-full h-96 px-4 md:px-8 my-5">
+      <div className="w-full px-4 my-5 h-96 md:px-8">
         {/* top tabs */}
-        <div className="flex justify-between items-center w-full">
-          <div className="flex flex-row flex-1 items-center">
-            <h3 className="text-white font-medium text-sm md:text-xl">
+        <div className="flex items-center justify-between w-full">
+          <div className="flex flex-row items-center flex-1">
+            <h3 className="text-sm font-medium text-white md:text-xl">
               Live events
             </h3>
             <div className="flex flex-col items-center mx-10">
-              <p className="text-gray-500 text-sm md:text-base">
+              <p className="text-sm text-gray-500 md:text-base">
                 Up coming events
               </p>
               <div className="w-full bg-[#D00265] h-1 mt-3" />
             </div>
             <div className="flex flex-col items-center">
-              <p className="text-gray-500  text-sm md:text-base">Past events</p>
+              <p className="text-sm text-gray-500 md:text-base">Past events</p>
               {/* <div className="w-full bg-[#D00265] h-1 mt-3" /> */}
             </div>
           </div>
@@ -48,11 +49,11 @@ const EventsTab: React.FC<any> = () => {
         </div>
 
         {/* event cards */}
-        <div className="flex  flex-1 mt-10 flex-row w-full relative">
+        <div className="relative flex flex-row flex-1 w-full mt-10">
           {query.isError ? (
             <div>Error</div>
           ) : query.isLoading ? (
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex items-center justify-center h-screen">
               <div className="spinner-border text-primary" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
@@ -61,13 +62,16 @@ const EventsTab: React.FC<any> = () => {
             <>
               <div style={{ width: "100%", height: 500 }}>
                 <HorizontalScroll>
-                  {query.data.data.map((event: any) => (
+                  {/* {query.data.data.map((event: any) => (
+                    <EventCard key={event.id} event={event} />
+                  ))} */}
+                  {eventsData.events.map((event: any) => (
                     <EventCard key={event.id} event={event} />
                   ))}
                 </HorizontalScroll>
               </div>
               {query.data.length > 6 && (
-                <div className="bg-white p-4 absolute right-0 top-20 rounded-sm cursor-pointer z-30">
+                <div className="absolute right-0 z-30 p-4 bg-white rounded-sm cursor-pointer top-20">
                   <AiOutlineArrowRight />
                 </div>
               )}

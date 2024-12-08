@@ -22,17 +22,18 @@ const Hero: React.FC<any> = () => {
 
   return (
     <div className="flex flex-1 h-screen ">
-      {query.isError ? (
+      {/* {query.isError ? (
         <div>Error</div>
       ) : query.isLoading ? (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex items-center justify-center h-screen">
           <div className="spinner-border text-primary" role="status">
             <span className="sr-only">Loading...</span>
           </div>
         </div>
       ) : (
         <MediaPlayer data={query.data} />
-      )}
+      )} */}
+      <MediaPlayer data={query.data} />
     </div>
   );
 };

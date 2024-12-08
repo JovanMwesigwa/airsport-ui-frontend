@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { APIURL } from "../apiUrl";
 import MovieCard from "./MovieCard";
 import HorizontalScroll from "react-scroll-horizontal";
+import { eventsData } from "../data";
 
 const MoviesTab: React.FC<any> = () => {
   // getting movies
@@ -26,11 +27,11 @@ const MoviesTab: React.FC<any> = () => {
 
   return (
     <section>
-      <div className="w-full h-96 px-4 md:px-8 my-5">
+      <div className="w-full px-4 my-5 h-96 md:px-8">
         {/* top tabs */}
-        <div className="flex justify-between items-center w-full">
-          <div className="flex flex-row flex-1 items-center">
-            <h3 className="text-white font-medium text-xl">
+        <div className="flex items-center justify-between w-full">
+          <div className="flex flex-row items-center flex-1">
+            <h3 className="text-xl font-medium text-white">
               Movies and documentaries
             </h3>
           </div>
@@ -40,12 +41,12 @@ const MoviesTab: React.FC<any> = () => {
         </div>
 
         {/* event cards */}
-        <div className="flex  flex-1 mt-10 flex-row w-full relative">
+        <div className="relative flex flex-row flex-1 w-full mt-10">
           {/* card */}
           {query.isError ? (
             <div>Error</div>
           ) : query.isLoading ? (
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex items-center justify-center h-screen">
               <div className="spinner-border text-primary" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
@@ -54,13 +55,16 @@ const MoviesTab: React.FC<any> = () => {
             <>
               <div style={{ width: "100%", height: 500 }}>
                 <HorizontalScroll>
-                  {query.data.data.map((event: any) => (
+                  {/* {query.data.data.map((event: any) => (
+                    <MovieCard key={event.id} event={event} />
+                  ))} */}
+                  {eventsData.events.map((event: any) => (
                     <MovieCard key={event.id} event={event} />
                   ))}
                 </HorizontalScroll>
               </div>
-              {query.data.length > 6 && (
-                <div className="bg-white p-4 absolute right-0 top-20 rounded-sm cursor-pointer">
+              {eventsData.events.length > 6 && (
+                <div className="absolute right-0 p-4 bg-white rounded-sm cursor-pointer top-20">
                   <AiOutlineArrowRight />
                 </div>
               )}

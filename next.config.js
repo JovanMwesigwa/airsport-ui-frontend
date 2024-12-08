@@ -6,6 +6,8 @@ const nextConfig = {
       "airsport-tv-backend-api.herokuapp.com",
       "countryflagsapi.com",
       "127.0.0.1",
+      "images.unsplash.com",
+      "unsplash.com",
     ],
   },
 };

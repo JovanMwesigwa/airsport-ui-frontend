@@ -23,10 +23,10 @@ const MovieCard: React.FC<Props> = ({ event }) => {
         // title={event.movie}
         className={`h-56 overflow-hidden bg-white w-60 rounded-md flex flex-col cursor-pointer mr-6 hover:bg-black hover:opacity-20`}
       >
-        <div className="flex flex-1 bg-gray-100 relative">
-          <Image src={event.thumbnail} layout="fill" />
+        <div className="relative flex flex-1 bg-gray-100">
+          <Image src={event.image} layout="fill" alt="image " />
           <div className="absolute bottom-0 left-0 bg-gradient-to-t from-[#00021C] p-5 flex  w-full h-1/2">
-            <p className="text-white font-medium text-lg">{event.title}</p>
+            <p className="text-lg font-medium text-white">{event.title}</p>
           </div>
         </div>
       </div>
